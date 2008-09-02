@@ -1,0 +1,20 @@
+plugin.tx_openx_pi1 {
+	invocation = local
+
+	zone = 0
+	campaign = 0
+	banner = 0
+	target = ''
+	withtext = ''
+	charset = ''
+	block = 0
+	blockCampaign = 0
+	
+	clientid = 0
+	
+	refresh = ''
+	frameheight = ''
+	framewidth = ''
+	resize = 0
+	transparent = 0
+}

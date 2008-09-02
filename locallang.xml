@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'openx'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">Openx banners</label>
+			<label index="pi1_plus_wiz_description">Add a banner served by an Openx server</label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="pi1_title">Bannière Openx</label>
+			<label index="pi1_plus_wiz_description">Ajoutez une bannière servie par un serveur Openx</label>
+		</languageKey>
+	</data>
+</T3locallang>

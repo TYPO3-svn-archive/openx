@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'openx'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		
+			<label index="tt_content.list_type_pi1">Openx banners</label>
+			
+			<label index="openx.pi_flexform.sheetGeneral">General Setup</label>
+			<label index="openx.pi_flexform.sheetRestrictions">Restrictions</label>
+			<label index="openx.pi_flexform.sheetIframe">Iframe options</label>
+			<label index="openx.pi_flexform.sheetCache">Update Openx content</label>
+			
+			<label index="openx.pi_flexform.invocationType">Type of banner invocation</label>
+			<label index="openx.pi_flexform.invocationJS">Javascript Tag</label>
+			<label index="openx.pi_flexform.invocationLocal">Local Mode Tag</label>
+			<label index="openx.pi_flexform.invocationIframe">iFrame Tag</label>
+
+			<label index="openx.pi_flexform.zone">Zone to display</label>
+			<label index="openx.pi_flexform.target">Target Frame</label>
+			<label index="openx.pi_flexform.target_def">Default</label>
+			<label index="openx.pi_flexform.target_new">New window</label>
+			<label index="openx.pi_flexform.target_top">Same window</label>
+			<label index="openx.pi_flexform.source">Source</label>
+			<label index="openx.pi_flexform.showtext">Show text below banner</label>
+			<label index="openx.pi_flexform.charset">Character set</label>
+			<label index="openx.pi_flexform.charset_none">None</label>
+			<label index="openx.pi_flexform.charset_auto">Auto-detect</label>
+			
+			<label index="openx.pi_flexform.campaign">Campaign to display</label>
+			<label index="openx.pi_flexform.banner">Banner to display</label>
+			<label index="openx.pi_flexform.client">Client</label>
+			<label index="openx.pi_flexform.block">Don't show the banner again on the same page</label>
+			<label index="openx.pi_flexform.blockcampaign">Don't show a banner from the same campaign again on the same page</label>
+			
+			<label index="openx.pi_flexform.refresh">Refresh after</label>
+			<label index="openx.pi_flexform.seconds">seconds</label>
+			<label index="openx.pi_flexform.frameheight">Zone height</label>
+			<label index="openx.pi_flexform.framewidth">Zone width</label>
+			<label index="openx.pi_flexform.transparent">Make the iframe transparent</label>
+			
+			<label index="openx.pi_flexform.norestriction">No restriction</label>
+			
+			<label index="openx.pi_flexform.cacheReset">Update contents provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheBtn">Update now</label>
+			<label index="openx.pi_flexform.cacheWarning">Warning, this can take up to several minutes. Don't close the window while processing</label>
+			
+		</languageKey>
+		<languageKey index="fr" type="array">
+		
+			<label index="tt_content.list_type_pi1">Bannières Openx</label>
+			
+			<label index="openx.pi_flexform.sheetGeneral">Paramètres généraux</label>
+			<label index="openx.pi_flexform.sheetRestrictions">Restrictions</label>
+			<label index="openx.pi_flexform.sheetIframe">Options iframe</label>
+			<label index="openx.pi_flexform.sheetCache">Mise à jour du contenu Openx</label>
+			
+			<label index="openx.pi_flexform.invocationType">Type d'invocation de bannières</label>
+			<label index="openx.pi_flexform.invocationJS">Tag Javascript</label>
+			<label index="openx.pi_flexform.invocationLocal">Tag mode local</label>
+			<label index="openx.pi_flexform.invocationIframe">Tag iFrame</label>
+			
+			<label index="openx.pi_flexform.zone">Zone à afficher</label>
+			<label index="openx.pi_flexform.target">Cadre cible</label>
+			<label index="openx.pi_flexform.target_def">Par défaut</label>
+			<label index="openx.pi_flexform.target_new">Nouvelle fenêtre</label>
+			<label index="openx.pi_flexform.target_top">Même fenêtre</label>
+			<label index="openx.pi_flexform.source">Source</label>
+			<label index="openx.pi_flexform.showtext">Afficher du texte sous la bannière</label>
+			<label index="openx.pi_flexform.charset">Jeu de caractères</label>
+			<label index="openx.pi_flexform.charset_none">Aucun</label>
+			<label index="openx.pi_flexform.charset_auto">Détection automatique</label>
+			
+			<label index="openx.pi_flexform.campaign">Campagne à afficher</label>
+			<label index="openx.pi_flexform.banner">Bannière à afficher</label>		
+			<label index="openx.pi_flexform.client">Client</label>	
+			<label index="openx.pi_flexform.block">Ne pas afficher la bannière à nouveau sur la même page</label>
+			<label index="openx.pi_flexform.blockcampaign">Ne pas afficher une bannière de la même campagne à nouveau sur la même page</label>
+			
+			
+			<label index="openx.pi_flexform.refresh">Actualiser après</label>
+			<label index="openx.pi_flexform.seconds">seconds</label>
+			<label index="openx.pi_flexform.frameheight">Hauteur de la zone</label>
+			<label index="openx.pi_flexform.framewidth">Largeur de la zone</label>
+			<label index="openx.pi_flexform.transparent">Rendre l'iframe transparente</label>
+			
+			<label index="openx.pi_flexform.norestriction">Pas de restriction</label>
+			
+			<label index="openx.pi_flexform.cacheReset">Mise à jour des contenus provenant du serveur Openx</label>
+			<label index="openx.pi_flexform.cacheBtn">Mettre à jour maintenant</label>
+			<label index="openx.pi_flexform.cacheWarning">Attention, cette opération peut prendre plusieurs minutes. Ne fermez pas la fenêtre durant la mise à jour.</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>
