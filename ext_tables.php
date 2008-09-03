@@ -24,6 +24,9 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'static/', 'OpenX Invocation Code');
 
 
 if (TYPO3_MODE == 'BE') {
+	t3lib_extMgm::addModule('txopenxM1','','',t3lib_extmgm::extPath($_EXTKEY).'mod/dummy/');
+	t3lib_extMgm::addModule('txopenxM1','txopenxbackendM1','',t3lib_extMgm::extPath($_EXTKEY).'mod/openxbackend/');
+	
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_openx_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'pi1/class.tx_openx_pi1_wizicon.php';
 }
 ?>

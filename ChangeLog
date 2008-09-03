@@ -1,3 +1,13 @@
+
+v0.2.0
+2008-08-13 Roberto Presedo  <rpresedo@cobweb.ch>
+
+	* Possibility to use 3 invocation types (js, iframe, local mode)
+	* Plugin for pagecontent with options
+	* Informations from openx server cached to speed up plugin display
+	* Openx Backend directly in the Typo3 BE
+
+v0.0.1
 2008-08-13 Roberto Presedo  <rpresedo@cobweb.ch>
 
 	* initial code generated with kickstarter
