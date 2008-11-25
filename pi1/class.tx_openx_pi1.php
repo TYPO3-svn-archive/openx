@@ -48,22 +48,22 @@ class tx_openx_pi1 extends tslib_pibase {
 	// OpenX required vars
 	protected $OpenxVars	= array(
 	'invocation'			=>'js',		// Invocation's type
-	'zone'					=>1,		// Zone id
-	'campaign'				=>0,		// Campaign id
-	'banner'				=>0,		// Banner id
-	'target'				=>'',		// Link's target
-	'withtext'				=>'',		// Additionnal text
-	'charset'				=>'',		// Charset
-	'block'					=>false,	// Do not show this banner on this page anymore
+	'zone'				=>1,		// Zone id
+	'campaign'			=>0,		// Campaign id
+	'banner'			=>0,		// Banner id
+	'target'			=>'',		// Link's target
+	'withtext'			=>'',		// Additionnal text
+	'charset'			=>'',		// Charset
+	'block'				=>false,	// Do not show this banner on this page anymore
 	'blockCampaign'			=>false,	// Do not show a banner of this campaign on this page anymore
-	'clientid'				=>false,	// Client id *for JS invocation*
-	'what'					=>false,	// Shortcut *for JS invocation*
-	'source'				=>false,	// Source *for JS invocation*
-	'cb'					=>false,	// Random number to revent cache *for JS invocation*
-	'refresh'				=>'',		// # seconds before refreshing the zone *for iframe invocation*
+	'clientid'			=>false,	// Client id *for JS invocation*
+	'what'				=>false,	// Shortcut *for JS invocation*
+	'source'			=>false,	// Source *for JS invocation*
+	'cb'				=>false,	// Random number to revent cache *for JS invocation*
+	'refresh'			=>'',		// # seconds before refreshing the zone *for iframe invocation*
 	'frameheight'			=>'',		// iFrame's height
 	'framewidth'			=>'',		// iFrame's width
-	'resize'				=>false,	// Allow iFrame resizing
+	'resize'			=>false,	// Allow iFrame resizing
 	'transparent'			=>false		// Makes iFrame transparent
 	);
 
@@ -392,6 +392,15 @@ class tx_openx_pi1 extends tslib_pibase {
 					}
 				}
 			}
+		}
+		
+// Handle local TypoScript override
+		if (!empty($this->conf['flexformTS'])) {
+			$typoscript = t3lib_TSparser::checkIncludeLines($this->conf['flexformTS']); // Check for file inclusion
+			$parseObj = t3lib_div::makeInstance('t3lib_TSparser'); // Instantiate a TS parser
+			$parseObj->parse($typoscript); // Parse the local TypoScript
+			if (isset($parseObj->setup['zone.'])) $parseObj->setup['zone'] = $this->cObj->stdWrap($parseObj->setup['zone'],$parseObj->setup['zone.']);
+			$this->conf = t3lib_div::array_merge_recursive_overrule($this->conf, $parseObj->setup); // Merge with local configuration
 		}
 	}
 }

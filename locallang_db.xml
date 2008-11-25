@@ -44,9 +44,16 @@
 			
 			<label index="openx.pi_flexform.norestriction">No restriction</label>
 			
-			<label index="openx.pi_flexform.cacheReset">Update contents provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheResetAgencies">Update Agencies provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheResetZones">Update Zones provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheResetBanners">Update Banners provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheResetCampaigns">Update Campaigns provided by the Openx server</label>
+			<label index="openx.pi_flexform.cacheResetAdvertisers">Update Adversiers provided by the Openx server</label>
 			<label index="openx.pi_flexform.cacheBtn">Update now</label>
 			<label index="openx.pi_flexform.cacheWarning">Warning, this can take up to several minutes. Don't close the window while processing</label>
+		
+			<label index="openx.pi_flexform.sheetTyposcript">TypoScript</label>
+			<label index="openx.pi_flexform.flexformTS">Override TypoScript</label>
 			
 		</languageKey>
 		<languageKey index="fr" type="array">
@@ -90,8 +97,15 @@
 			<label index="openx.pi_flexform.norestriction">Pas de restriction</label>
 			
 			<label index="openx.pi_flexform.cacheReset">Mise à jour des contenus provenant du serveur Openx</label>
+			<label index="openx.pi_flexform.cacheResetZones">Mise à jour des zones provenant du serveur Openx</label>
+			<label index="openx.pi_flexform.cacheResetBanners">Mise à jour des bannières provenant du serveur Openx</label>
+			<label index="openx.pi_flexform.cacheResetCampaigns">Mise à jour des campagnes provenant du serveur Openx</label>
+			<label index="openx.pi_flexform.cacheResetAdvertisers">Mise à jour des annonceurs provenant du serveur Openx</label>
 			<label index="openx.pi_flexform.cacheBtn">Mettre à jour maintenant</label>
 			<label index="openx.pi_flexform.cacheWarning">Attention, cette opération peut prendre plusieurs minutes. Ne fermez pas la fenêtre durant la mise à jour.</label>
+		
+			<label index="openx.pi_flexform.sheetTyposcript">TypoScript</label>
+			<label index="openx.pi_flexform.flexformTS">TypoScript supplémentaire</label>
 			
 		</languageKey>
 	</data>

@@ -341,6 +341,26 @@
 				</el>
 			</ROOT>
 		</iframe>
+		<sTyposcript>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.sheetTyposcript</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<flexformTS>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.flexformTS</label>
+							<config>
+								<type>text</type>
+								<size>30</size>
+								<rows>20</rows>
+							</config>
+						</TCEforms>      
+					</flexformTS>
+				</el>
+			</ROOT>
+		</sTyposcript>	
 		<ox_update>
 			<ROOT>
 				<TCEforms>
@@ -348,9 +368,9 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<ox_refreshcache>
+					<ox_refreshcacheAgencies>
 						<TCEforms>
-							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheReset</label>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheResetAgencies</label>
 							<config>
 								<type>radio</type>
 								<items type="array">
@@ -359,11 +379,75 @@
 										<numIndex index="1"></numIndex>
 									</numIndex>
 								</items>
-								<itemsProcFunc>tx_openx_refreshCacheField->refreshCacheField</itemsProcFunc>
+								<itemsProcFunc>tx_openx_refreshCacheField->refreshAgencies</itemsProcFunc>
 								<requestUpdate>1</requestUpdate>
 							</config>
 						</TCEforms>
-					</ox_refreshcache>
+					</ox_refreshcacheAgencies>
+					<ox_refreshcacheZone>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheResetZones</label>
+							<config>
+								<type>radio</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheBtn</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+								</items>
+								<itemsProcFunc>tx_openx_refreshCacheField->refreshZones</itemsProcFunc>
+								<requestUpdate>1</requestUpdate>
+							</config>
+						</TCEforms>
+					</ox_refreshcacheZone>
+					<ox_refreshcacheBanners>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheResetBanners</label>
+							<config>
+								<type>radio</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheBtn</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+								</items>
+								<itemsProcFunc>tx_openx_refreshCacheField->refreshBanners</itemsProcFunc>
+								<requestUpdate>1</requestUpdate>
+							</config>
+						</TCEforms>
+					</ox_refreshcacheBanners>
+					<ox_refreshcacheCampaigns>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheResetCampaigns</label>
+							<config>
+								<type>radio</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheBtn</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+								</items>
+								<itemsProcFunc>tx_openx_refreshCacheField->refreshCampaigns</itemsProcFunc>
+								<requestUpdate>1</requestUpdate>
+							</config>
+						</TCEforms>
+					</ox_refreshcacheCampaigns>
+					<ox_refreshcacheAdvertisers>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheResetAdvertisers</label>
+							<config>
+								<type>radio</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.cacheBtn</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+								</items>
+								<itemsProcFunc>tx_openx_refreshCacheField->refreshAdvertisers</itemsProcFunc>
+								<requestUpdate>1</requestUpdate>
+							</config>
+						</TCEforms>
+					</ox_refreshcacheAdvertisers>
 				</el>
 			</ROOT>
 		</ox_update>

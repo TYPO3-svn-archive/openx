@@ -119,17 +119,25 @@ class tx_openx_xmlrpc_getinfos {
 	 * @param integer $uid
 	 */
 	function checkCaches($uid) {
-		$checkCache = $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcache']['vDEF'];
-		if (!$this->noMoreCacheCheck && $checkCache) {
-//			$cachefilename = t3lib_div::getFileAbsFileName('typo3temp/openx/');
-//			t3lib_div::rmdir($cachefilename,true);
-			
+		if (!$this->noMoreCacheAgencies && $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcacheAgencies']['vDEF']) {
 			$this->createCaches("Agencies");
+			$this->noMoreCacheAgencies = true;
+		}
+		if (!$this->noMoreCacheZone && $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcacheZone']['vDEF']) {
 			$this->createCaches("Zones");
+			$this->noMoreCacheZone = true;
+		}
+		if (!$this->noMoreCacheBanners && $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcacheBanners']['vDEF']) {
 			$this->createCaches("Banners");
+			$this->noMoreCacheBanners = true;
+		}
+		if (!$this->noMoreCacheCampaigns && $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcacheCampaigns']['vDEF']) {
 			$this->createCaches("Campaigns");
+			$this->noMoreCacheCampaigns = true;
+		}
+		if (!$this->noMoreCacheAdvertisers && $GLOBALS['_POST']['data']['tt_content'][$uid]['pi_flexform']['data']['ox_update']['lDEF']['ox_refreshcacheAdvertisers']['vDEF']) {
 			$this->createCaches("Advertisers");
-			$this->noMoreCacheCheck = true;
+			$this->noMoreCacheAdvertisers = true;
 		}
 	}
 
@@ -146,8 +154,8 @@ class tx_openx_xmlrpc_getinfos {
 		}
 		// load Extension constants		
 		$extConf 		= unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['openx']);
-		$xmlRpcHost 	= $extConf['OpenxServerDomain'];
-		$webXmlRpcDir 	= "/".$extConf['OpenxRootFolder'].'www/api/v1/xmlrpc';
+		$xmlRpcHost 		= $extConf['OpenxServerDomain'];
+		$webXmlRpcDir 		= "/".$extConf['OpenxRootFolder'].'/www/api/v1/xmlrpc';
 		$username 		= $extConf['OpenxUsername'];
 		$password 		= $extConf['OpenxPassword'];
 
@@ -160,6 +168,7 @@ class tx_openx_xmlrpc_getinfos {
 		else $caches = array($infos);
 		
 		foreach ($caches as $type) {
+			$datas = false;
 			switch ($type) {
 				case 'Agencies':
 					$datas = serialize($this->getAgencies());
@@ -177,9 +186,11 @@ class tx_openx_xmlrpc_getinfos {
 					$datas = serialize($this->getZones());
 					break;
 			}
-		$content = "<?php $".$type." = '".$datas."'; ?>";
-		$cachefilename = t3lib_div::getFileAbsFileName('typo3temp/openx/ox_cache_'.$type.'.php');
-		t3lib_div::writeFileToTypo3tempDir($cachefilename,$content);
+			if ($datas) {
+				$content = "<?php $".$type." = '".$datas."'; ?>";
+				$cachefilename = t3lib_div::getFileAbsFileName('typo3temp/openx/ox_cache_'.$type.'.php');
+				t3lib_div::writeFileToTypo3tempDir($cachefilename,$content);
+			}
 		}
 	}
 	

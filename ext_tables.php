@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 t3lib_div::loadTCA('tt_content');
-$GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] .= ',ox_refreshcache';
+$GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] .= ',ox_refreshcacheAgencies,ox_refreshcacheZone,ox_refreshcacheBanners,ox_refreshcacheCampaigns,ox_refreshcacheAdvertisers';
 /*$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key';*/
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1'] = 'layout,select_key,pages';
 
