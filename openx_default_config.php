@@ -8,28 +8,28 @@ $TYPO3_CONF_VARS['EXTCONF']['openx'] = array(
 	// Folders (need a slash at the beginning)
 	'OpenxFolders'	=> array(
 	
-		'Delivery'			=>'/www/delivery',
-		'Images'			=>'/www/images'),
+		'Delivery'			=>'/www/jedelivre',
+		'Images'			=>'/www/mesimages'),
 		
 	// Files
 	'OpenxDeliveryFiles' => array(
 	
-		'AdClick'			=>'ck.php',
-		'AdConversionTable'	=>'tv.php',
-		'AdContent'			=>'ac.php',
-		'AdConversion'		=>'ti.php',
-		'AdConversionJs'	=>'tjs.php',
-		'AdFrame'			=>'afr.php',
-		'AdImage'			=>'ai.php',
-		'AdJs'				=>'ajs.php',
-		'AdLayer'			=>'al.php',
-		'AdLog'				=>'lg.php',
-		'AdPopup'			=>'apu.php',
-		'AdView'			=>'avw.php',
-		'XMLRPC'			=>'axmlrpc.php',
-		'LocalInvocation'	=>'alocal.php',
-		'FrontController'	=>'fc.php',
-		'FlashInclude'		=>'fl.php'
+		'AdClick'			=>'ox-ck.php',
+		'AdConversionTable'	=>'ox-tv.php',
+		'AdContent'			=>'ox-ac.php',
+		'AdConversion'		=>'ox-ti.php',
+		'AdConversionJs'	=>'ox-tjs.php',
+		'AdFrame'			=>'ox-afr.php',
+		'AdImage'			=>'ox-ai.php',
+		'AdJs'				=>'ox-ajs.php',
+		'AdLayer'			=>'ox-al.php',
+		'AdLog'				=>'ox-lg.php',
+		'AdPopup'			=>'ox-apu.php',
+		'AdView'			=>'ox-avw.php',
+		'XMLRPC'			=>'ox-axmlrpc.php',
+		'LocalInvocation'	=>'ox-alocal.php',
+		'FrontController'	=>'ox-fc.php',
+		'FlashInclude'		=>'ox-fl.js'
 		
 	)
 );

@@ -310,16 +310,6 @@
 							</config>
 						</TCEforms>
 					</refresh>
-					<frameheight>
-						<TCEforms>
-							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.frameheight</label>
-							<config>
-								<type>input</type>
-								<checkbox></checkbox>
-								<size>100</size>
-							</config>
-						</TCEforms>
-					</frameheight>
 					<framewidth>
 						<TCEforms>
 							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.framewidth</label>
@@ -330,6 +320,16 @@
 							</config>
 						</TCEforms>
 					</framewidth>
+					<frameheight>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.frameheight</label>
+							<config>
+								<type>input</type>
+								<checkbox></checkbox>
+								<size>100</size>
+							</config>
+						</TCEforms>
+					</frameheight>
 					<transparent>
 						<TCEforms>
 							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.transparent</label>

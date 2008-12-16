@@ -165,7 +165,7 @@ class tx_openx_pi1 extends tslib_pibase {
 
 		if (!defined('MAX_PATH')) define('MAX_PATH', t3lib_div::getIndpEnv('TYPO3_DOCUMENT_ROOT').$this->OpenxRootFolder);
 
-		if (include_once(MAX_PATH . '/www/delivery/'.$this->OpenxDeliveryFiles['LocalInvocation'])) {
+		if (include_once(MAX_PATH . $this->OpenxFolders['Delivery'] . '/' . $this->OpenxDeliveryFiles['LocalInvocation'])) {
 
 			if (!isset($GLOBALS['Openx_Context'])) $GLOBALS['Openx_Context'] = array();
 
