@@ -40,11 +40,12 @@ $EM_CONF[$_EXTKEY] = array(
 	'author_company' => '',
 	'version' => '0.2.1',
 	'constraints' => array(
-		'depends' => array(
+		'depends' => array( 
 		),
 		'conflicts' => array(
 		),
-		'suggests' => array('pear'
+		'suggests' => array(
+			'pear' => '0.0.0',
 		),
 	),
 	'_md5_values_when_last_written' => '',

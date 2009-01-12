@@ -338,6 +338,14 @@
 							</config>
 						</TCEforms>
 					</transparent>
+					<fixIEBug>
+						<TCEforms>
+							<label>LLL:EXT:openx/locallang_db.xml:openx.pi_flexform.fixIEBug</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</fixIEBug>
 				</el>
 			</ROOT>
 		</iframe>

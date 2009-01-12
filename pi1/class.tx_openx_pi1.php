@@ -89,6 +89,7 @@ class tx_openx_pi1 extends tslib_pibase {
 	protected $OpenxMacros = array();
 	protected $OpenxOpenxBackupImage = '';
 	protected $uniqueid = 0;
+	protected $fixIEBug = 0;
 
 	/**
 	 * Send query to the openx and return results
@@ -122,6 +123,7 @@ class tx_openx_pi1 extends tslib_pibase {
 		'DeliveryEngine'	=>'http://'. $this->OpenxServerDomain."/".$this->OpenxRootFolder.$this->OpenxFolders['Delivery'],
 		'ImageStoreSSL'		=>'https://'.$this->OpenxServerDomain."/".$this->OpenxRootFolder.$this->OpenxFolders['Images'],
 		'ImageStore'		=>'http://'. $this->OpenxServerDomain."/".$this->OpenxRootFolder.$this->OpenxFolders['Images']);
+		
 		// Creates the invocation code
 		switch ($this->OpenxVars['invocation']) {
 			case 'local':
@@ -133,6 +135,16 @@ class tx_openx_pi1 extends tslib_pibase {
 
 				break;
 			case 'iframe':
+				// Handle the IE bug: http://stackoverflow.com/questions/296674/a-resonable-request-iframes-in-ie-that-indicate-loading-progress
+				if ($this->fixIEBug) {
+					$script = '<script type="text/javascript">' .chr(10);
+					$script .= '/*<![CDATA[*/' .chr(10);
+					$script .= file_get_contents(t3lib_extMgm::extPath($this->extKey) . 'pi1/fixIEbug.js') .chr(10);
+					$script .= '/*]]>*/' .chr(10);
+					$script .= '</script>' .chr(10);
+					
+					$GLOBALS['TSFE']->additionalHeaderData[] = $script;
+				}
 				$ret = $this->getIframeInvocation();
 
 				break;
@@ -253,21 +265,30 @@ class tx_openx_pi1 extends tslib_pibase {
 			$this->OpenxParams['resize'] = "resize=1";
 		}
 
-		$ret = "<iframe id='{$this->uniqueid}' name='{$this->uniqueid}' src='".$this->getDeliveryUrl('AdFrame');
+
+		$urlSource = $this->getDeliveryUrl('AdFrame');
+		
 		if (sizeof($this->OpenxParams) > 0) {
-			$ret .= "?".implode ("&amp;", $this->OpenxParams);
+			$urlSource .= "?".implode ("&amp;", $this->OpenxParams);
 		}
-		$ret .= "' framespacing='0' frameborder='no' scrolling='no'";
-
-
+		
+		if ($this->fixIEBug) {
+			$ret = '<script type="text/javascript">openxURL["' . $this->uniqueid . '"] = "' . $urlSource . '"</script>';
+			$ret .= '<iframe id="' . $this->uniqueid . '" name="' . $this->uniqueid . '" src=""';
+		}
+		else {	
+			$ret = '<iframe id="' . $this->uniqueid . '" name="' . $this->uniqueid . '" src="' . $urlSource . '"';
+		}
+		$ret .= ' framespacing="0" frameborder="no" scrolling="no"';
+	
 		if (isset($this->OpenxVars['framewidth']) && $this->OpenxVars['framewidth'] != '' && $this->OpenxVars['framewidth'] != '-1') {
-			$ret .= " width='".$this->OpenxVars['framewidth']."'";
+			$ret .= ' width="' . $this->OpenxVars['framewidth'] . '"';
 		}
 		if (isset($this->OpenxVars['frameheight']) && $this->OpenxVars['frameheight'] != '' && $this->OpenxVars['frameheight'] != '-1') {
-			$ret .= " height='".$this->OpenxVars['frameheight']."'";
+			$ret .= ' height="' . $this->OpenxVars['frameheight'] . '"';
 		}
 		if (isset($this->OpenxVars['transparent']) && $this->OpenxVars['transparent'] == '1') {
-			$ret .= " allowtransparency='true'";
+			$ret .= ' allowtransparency="true"';
 		}
 
 		$ret .= ">";
@@ -287,7 +308,6 @@ class tx_openx_pi1 extends tslib_pibase {
 		if (isset($this->OpenxVars['target']) && $this->OpenxVars['target'] != '') {
 			$this->OpenxParams['target'] = "target=".urlencode($this->OpenxVars['target']);
 		}
-
 		return $ret;
 	}
 
@@ -355,16 +375,20 @@ class tx_openx_pi1 extends tslib_pibase {
 		// Make sure that ct0= is the last element in the array
 		unset($imgParams['ct0']);
 
-		$backup = "<a href='".$this->getDeliveryUrl('AdClick')."?".implode("&amp;", $hrefParams)."'";
+		$backup = '<a href="' . $this->getDeliveryUrl('AdClick') . '?' . implode("&amp;", $hrefParams) . '"';
 
-		if (isset($this->OpenxVars['target']) && $this->OpenxVars['target'] != '')  $backup .= " target='".$this->OpenxVars['target']."'";
-		else $backup .= " target='_blank'";
+		if (isset($this->OpenxVars['target']) && $this->OpenxVars['target'] != '') {
+			$backup .= ' target="' . $this->OpenxVars['target'] . '"';
+		}
+		else {
+			$backup .= ' target="_blank"';
+		}
 
-		$backup .= "><img src='".$this->getDeliveryUrl('AdView');
+		$backup .= '><img src="' . $this->getDeliveryUrl('AdView');
 		// Remove any paramaters that should not be passed into the IMG call
 		unset($imgParams['target']);
 		if (sizeof($imgParams) > 0) $backup .= "?".implode ("&amp;", $imgParams);
-		$backup .= "' border='0' alt='' /></a>";
+		$backup .= '" border="0" alt="" /></a>';
 
 		$this->OpenxBackupImage = $backup;
 	}
@@ -392,6 +416,12 @@ class tx_openx_pi1 extends tslib_pibase {
 					}
 				}
 			}
+		}
+		
+		// Tells if we the browser is IE and if some fixing must applied
+		$informations = t3lib_div::clientInfo();
+		if ($this->conf['fixIEBug'] && $informations['BROWSER'] == 'msie') {
+			$this->fixIEBug = 1;
 		}
 		
 // Handle local TypoScript override

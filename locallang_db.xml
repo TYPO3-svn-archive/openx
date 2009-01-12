@@ -41,6 +41,7 @@
 			<label index="openx.pi_flexform.frameheight">Zone height</label>
 			<label index="openx.pi_flexform.framewidth">Zone width</label>
 			<label index="openx.pi_flexform.transparent">Make the iframe transparent</label>
+			<label index="openx.pi_flexform.fixIEBug">Fix potential IE bug (Whenever IE is detected, add additional Javascript)</label>
 			
 			<label index="openx.pi_flexform.norestriction">No restriction</label>
 			
@@ -93,6 +94,7 @@
 			<label index="openx.pi_flexform.frameheight">Hauteur de la zone</label>
 			<label index="openx.pi_flexform.framewidth">Largeur de la zone</label>
 			<label index="openx.pi_flexform.transparent">Rendre l'iframe transparente</label>
+			<label index="openx.pi_flexform.fixIEBug">Résout un problème potentiel avec IE (Lorsque IE est détecté, ajoute du Javascript)</label>
 			
 			<label index="openx.pi_flexform.norestriction">Pas de restriction</label>
 			
