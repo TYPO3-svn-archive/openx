@@ -23,7 +23,7 @@ $EM_CONF[$_EXTKEY] = array(
 	
 	",
 	'category' => 'plugin',
-	'author' => 'Roberto Presedo',
+	'author' => 'Cobweb - Roberto Presedo',
 	'author_email' => 'rpresedo@cobweb.ch',
 	'shy' => '',
 	'dependencies' => '',
@@ -38,7 +38,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.2.1',
+	'version' => '1.0.0',
 	'constraints' => array(
 		'depends' => array( 
 		),
