@@ -1,4 +1,4 @@
-# cat=basic//; type=string; label=Domain of the openx Server: (without http:// or slashes at the end)
+# cat=basic//; type=string; label=Openx Server Domain: (without http:// or slashes at the end)
 OpenxServerDomain = www.myopenxserver.com
 
 # cat=basic//; type=string; label=Path to Openx files from root:(example : if your Openx installation is on http://www.myopenxserver.com/path/to/openx/files/ then enter path/to/openx/files/)
@@ -7,8 +7,11 @@ OpenxRootFolder = /
 # cat=basic//; type=string; label=Admin username
 OpenxUsername = /
 
-# cat=basic//; type=string; label=Admin username
+# cat=basic//; type=string; label=Admin password
 OpenxPassword = /
 
 # cat=basic//; type=integer; label=Publisher id
 OpenxpublisherId = 
+
+# cat=basic//; type=string; label= Admin Interface Domain: (WITH HTTPS:// OR HTTP:// BUT without slashes at the end - ONLY IF DIFFERENT FROM THE Openx Server Domain)
+OpenxServerAdminDomain = 

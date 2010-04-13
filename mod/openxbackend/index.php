@@ -84,7 +84,11 @@ class  tx_openxbackend extends t3lib_SCbase {
 
 							// get the file from EM & user tsconfig
 						$tmp_confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['openx']);
-						$url = 'http://'.$tmp_confArr['OpenxServerDomain'].'/'.$tmp_confArr['OpenxRootFolder'];
+
+                                                if ($tmp_confArr['OpenxServerAdminDomain'] <> '') $BEDomainName = $tmp_confArr['OpenxServerAdminDomain'];
+                                                else $BEDomainName = 'http://'.$tmp_confArr['OpenxServerDomain'];
+
+						$url = $BEDomainName.'/'.$tmp_confArr['OpenxRootFolder'];
 						if ($url!='') {
 							$this->content.= '
 								<iframe src="'.$url.'" width="98%" height="98%" name="openxFrame">

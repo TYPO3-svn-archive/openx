@@ -45,6 +45,9 @@ class tx_openx_pi1 extends tslib_pibase {
 	// Result of the query, formated
 	public $result		= false;
 
+	// Checks the cHash
+	public $pi_checkCHash	= true;
+
 	// OpenX required vars
 	protected $OpenxVars	= array(
 	'invocation'			=>'js',		// Invocation's type

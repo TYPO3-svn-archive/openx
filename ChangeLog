@@ -1,3 +1,6 @@
+v1.0.1
+2010-01-28 Roberto Presedo <rpresedo@cobweb.ch>
+        * Possibility to use a different domain name for the administration interface.
 
 v1.0.0
 2009-10-13 Roberto Presedo  <rpresedo@cobweb.ch>
