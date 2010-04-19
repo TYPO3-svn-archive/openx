@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
+| OpenX v2.8                                                                |
 | ==========                                                                |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -51,7 +51,7 @@ class XmlRpcUtils
      */
     function getEntityWithNotNullFields(&$oInfoObject)
     {
-        $aInfoData = (array) $oInfoObject;
+        $aInfoData = $oInfoObject->toArray();
         $aReturnData = array();
 
         foreach ($aInfoData as $fieldName => $fieldValue) {
@@ -81,6 +81,7 @@ class XmlRpcUtils
                 return new XML_RPC_Value($variable, $GLOBALS['XML_RPC_Int']);
 
             case 'float':
+            case 'double':
                 return new XML_RPC_Value($variable, $GLOBALS['XML_RPC_Double']);
 
             case 'boolean':
@@ -92,16 +93,8 @@ class XmlRpcUtils
                     die('Value should be PEAR::Date type');
                 }
 
-                if ($variable->format('%Y-%m-%d') == '0000-00-00') {
-
-                    return new XML_RPC_Value(null, $GLOBALS['XML_RPC_DateTime']);
-
-                } else {
-
-                    $value = $variable->format('%Y%m%d') . 'T00:00:00';
-                    return new XML_RPC_Value($value, $GLOBALS['XML_RPC_DateTime']);
-
-                }
+                $value = $variable->format('%Y%m%d') . 'T00:00:00';
+                return new XML_RPC_Value($value, $GLOBALS['XML_RPC_DateTime']);
 
             case 'custom':
                 return $variable;

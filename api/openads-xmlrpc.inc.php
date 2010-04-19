@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
+| OpenX v2.8                                                                |
 | ==========                                                                |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -131,6 +131,7 @@ class tx_OpenxXmlRpc
         $aRemoteInfo['cookies'] = $_COOKIE;
 
         // Encode the context:
+        XML_RPC_Client::setAutoBase64(true);
         $xmlContext = array();
         foreach ($context as $contextValue) {
             $xmlContext[] = XML_RPC_encode($contextValue);
@@ -219,6 +220,7 @@ class tx_OpenxXmlRpc
         if (is_array($what)) {
             $what = serialize($what);
         }
+        XML_RPC_Client::setAutoBase64(true);
         // Create the XML-RPC message
         $message = new XML_RPC_Message('openads.spc', array(
             XML_RPC_encode($aRemoteInfo),

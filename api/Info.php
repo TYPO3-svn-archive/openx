@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
+| OpenX v2.8                                                                |
 | ==========                                                                |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -37,38 +37,42 @@ $Id:$
 class tx_OpenxInfo
 {
 
-	function getFieldsTypes()
-	{
-		die('Please define this method in each derivative class');
-	}
+    function getFieldsTypes()
+    {
+        die('Please define this method in each derivative class');
+    }
 
-	function getFieldType($fieldName)
-	{
-		$aFieldsTypes = $this->getFieldsTypes();
-		if (!isset($aFieldsTypes) || !is_array($aFieldsTypes)) {
-			die('Please provide field types array for Info object creation');
-		}
+    function getFieldType($fieldName)
+    {
+        $aFieldsTypes = $this->getFieldsTypes();
+        if (!isset($aFieldsTypes) || !is_array($aFieldsTypes)) {
+            die('Please provide field types array for Info object creation');
+        }
 
-		if (!array_key_exists($fieldName, $aFieldsTypes)) {
-			die('Unknown type for field \'' . $fieldName .'\'');
-		}
-		return $aFieldsTypes[$fieldName];
-	}
+        if (!array_key_exists($fieldName, $aFieldsTypes)) {
+            die('Unknown type for field \'' . $fieldName .'\'');
+        }
+        return $aFieldsTypes[$fieldName];
+    }
 
-	function readDataFromArray($aEntityData)
-	{
-		$aFieldsTypes = $this->getFieldsTypes();
-		foreach($aFieldsTypes as $fieldName => $fieldType) {
-			if (array_key_exists($fieldName, $aEntityData)) {
-				$this->$fieldName = $aEntityData[$fieldName];
-			}
-		}
-	}
+    function readDataFromArray($aEntityData)
+    {
+        $aFieldsTypes = $this->getFieldsTypes();
+        foreach($aFieldsTypes as $fieldName => $fieldType) {
+            if (array_key_exists($fieldName, $aEntityData)) {
+                if ($fieldType == 'date') {
+                    $this->$fieldName = new Date($aEntityData[$fieldName]);
+                } else {
+                    $this->$fieldName = $aEntityData[$fieldName];
+                }
+            }
+        }
+    }
 
-	function toArray()
-	{
-		return (array)$this;
-	}
+    function toArray()
+    {
+        return (array)$this;
+    }
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/openx/api/Info.php']) {

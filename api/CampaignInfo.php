@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
-| ==========                                                                |
+| OpenX v2.8                                             |
+| ==========                            |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -107,18 +107,73 @@ class tx_OpenxDllCampaignInfo extends tx_OpenxInfo
     var $weight;
 
     /**
+     *
+     * @var integer $targetImpressions
+     */
+    var $targetImpressions;
+
+    /**
+     *
+     * @var integer $targetClick
+     */
+    var $targetClicks;
+
+    /**
+     *
+     * @var integer $targetConversions
+     */
+    var $targetConversions;
+
+    /**
+     * Revenue amount, eg 1.55.
+     *
+     * @var double $revenue
+     */
+    var $revenue;
+
+    /**
+     * Revenue type (CPM, CPA, etc) as defined in constants.php.
+     * Eg, define('MAX_FINANCE_CPM',    1);
+     *
+     * @var integer $revenueType
+     */
+    var $revenueType;
+
+    /**
+     * Frequency capping: total views per user.
+     *
+     * @var integer $capping
+     */
+    var $capping;
+
+    /**
+     * Frequency capping: total views per period.
+     * (defined in seconds by "block").
+     *
+     * @var integer $sessionCapping
+     */
+    var $sessionCapping;
+
+    /**
+     * Frequency capping: reset period, in seconds.
+     *
+     * @var integer $block
+     */
+    var $block;
+
+
+    /**
+     * This field provides any additional comments to be stored.
+     *
+     * @var string $comments
+     */
+    var $comments;
+
+    /**
      * This function sets all default values when adding new campaign.
      *
      */
     function setDefaultForAdd() {
-        if (is_null($this->startDate)) {
-            $this->startDate = new Date(tx_OpenxDal::noDateValue());
-        }
-
-        if (is_null($this->endDate)) {
-            $this->endDate = new Date(tx_OpenxDal::noDateValue());
-        }
-
         if (is_null($this->impressions)) {
             $this->impressions = -1;
         }
@@ -134,8 +189,46 @@ class tx_OpenxDllCampaignInfo extends tx_OpenxInfo
         if (is_null($this->weight)) {
             $this->weight = 1;
         }
+
+        if (is_null($this->targetImpressions)) {
+            $this->targetImpressions = 0;
+        }
+
+        if (is_null($this->targetClicks)) {
+            $this->targetClicks = 0;
+        }
+
+        if (is_null($this->targetConversions)) {
+            $this->targetConversions = 0;
+        }
+
+        if (is_null($this->revenue)) {
+            // Leave null
+        }
+
+        if (is_null($this->revenueType)) {
+            // Leave null
+        }
+        if (is_null($this->capping)) {
+            // Leave null
+        }
+
+        if (is_null($this->sessionCapping)) {
+            // Leave null
+        }
+
+        if (is_null($this->block)) {
+            // Leave null
+        }
     }
 
+    /**
+     * This method returns an array of fields with their corresponding types.
+     *
+     * @access public
+     *
+     * @return array
+     */
     function getFieldsTypes()
     {
         return array(
@@ -147,7 +240,16 @@ class tx_OpenxDllCampaignInfo extends tx_OpenxInfo
                     'impressions' => 'integer',
                     'clicks' => 'integer',
                     'priority' => 'integer',
-                    'weight' => 'integer'
+                    'weight' => 'integer',
+                    'targetImpressions' => 'integer',
+                    'targetClicks' => 'integer',
+                    'targetConversions' => 'integer',
+                    'revenue' => 'double',
+                    'revenueType' => 'integer',
+                    'capping' => 'integer',
+                    'sessionCapping' => 'integer',
+                    'block' => 'integer',
+                    'comments' => 'string',
                 );
     }
 }

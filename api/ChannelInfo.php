@@ -2,8 +2,8 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.8                                                                |
-| ==========                                                                |
+| OpenX v2.8                                             |
+| ==========                            |
 |                                                                           |
 | Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
@@ -22,14 +22,14 @@
 | along with this program; if not, write to the Free Software               |
 | Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA |
 +---------------------------------------------------------------------------+
-$Id:$
+$Id: ChannelInfo.php 49423 2010-02-26 20:19:26Z chris.nutting $
 */
 
 /**
  * @package    OpenXDll
- * @author     Andriy Petlyovanyy <apetlyovanyy@lohika.com>
+ * @author     Heiko Weber <heiko@wecos.de>
  *
- * This file describes the AgencyInfo class.
+ * This file describes the ChannelInfo class.
  *
  */
 
@@ -37,68 +37,69 @@ $Id:$
 require_once 'Info.php';
 
 /**
- *  The agencyInfo class extends the base Info class and contains information about the agency.
+ *  The channelInfo class extends the base Info class and contains information about the channel.
  *
  */
 
-class tx_OpenxDllAgencyInfo extends tx_OpenxInfo
+class OA_Dll_ChannelInfo extends OA_Info
 {
+
     /**
-     * The agencyID variable is the unique ID for the agency.
+     * The channelID variable is the unique ID for the channel.
+     *
+     * @var integer $channelId
+     */
+    var $channelId;
+
+    /**
+     * This field contains the ID of the agency account.
      *
      * @var integer $agencyId
      */
     var $agencyId;
 
     /**
-     * This field contains the ID of the agency account.
+     * This field contains the ID of the publisher.
      *
-     * @var integer $accountId
+     * @var integer $websiteId
      */
-    var $accountId;
+    var $websiteId;
 
     /**
-     * The agencycName variable is the name of the agency.
+     * The channelName variable is the name of the channel.
      *
-     * @var string $agencyName
+     * @var string $channelName
      */
-    var $agencyName;
+    var $channelName;
 
     /**
-     * The password variable is the password for the agency.
+     * The description variable is the description for the channel.
      *
-     * @var string $password
+     * @var string $description
      */
-    var $password;
+    var $description;
 
     /**
-     * The contactName variable is the name of the contact for the agency.
+     * The comments variable is the comment for the channel.
      *
-     * @var string $contactName
+     * @var string $comments
      */
-    var $contactName;
+    var $comments;
 
     /**
-     * The emailAddress variable is the email address for the agency contact.
+     * This method sets all default values when adding a new channel.
      *
-     * @var string $emailAddress
      */
-    var $emailAddress;
 
     function getFieldsTypes()
     {
         return array(
-                    'agencyId' => 'integer',
-                    'accountId' => 'integer',
-                    'agencyName' => 'string',
-                    'contactName' => 'string',
-                    'password' => 'string',
-                    'emailAddress' => 'string'
-                );
+            'channelId' => 'integer',
+            'agencyId' => 'integer',
+            'websiteId' => 'integer',
+            'channelName' => 'string',
+            'description' => 'string',
+            'comments' => 'string',
+        );
     }
 }
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/openx/api/AgencyInfo.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/openx/api/AgencyInfo.php']);
-}
-?>

@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
+| OpenX v2.8                                                                |
 | ==========                                                                |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -87,9 +87,39 @@ class tx_OpenxDllZoneInfo extends tx_OpenxInfo
      */
     var $height;
 
+    /**
+     * Frequency capping: total views per user.
+     *
+     * @var integer $capping
+     */
+    var $capping;
 
     /**
-     * This functions sets all default values when adding a new zone.
+     * Frequency capping: total views per period.
+     * (defined in seconds by "block").
+     *
+     * @var integer $sessionCapping
+     */
+    var $sessionCapping;
+
+    /**
+     * Frequency capping: reset period, in seconds.
+     *
+     * @var integer $block
+     */
+    var $block;
+
+    /**
+     * This field provides any additional comments to be stored.
+     *
+     * @var string $comments
+     */
+    var $comments;
+
+    /**
+     * This method sets all default values when adding a new zone.
+     *
+     * @access public
      *
      */
     function setDefaultForAdd() {
@@ -104,8 +134,26 @@ class tx_OpenxDllZoneInfo extends tx_OpenxInfo
         if (is_null($this->height)) {
             $this->height = 0;
         }
+        if (is_null($this->capping)) {
+            // Leave null
     }
 
+        if (is_null($this->sessionCapping)) {
+            // Leave null
+        }
+
+        if (is_null($this->block)) {
+            // Leave null
+        }
+    }
+
+    /**
+     * This method returns an array of fields with their corresponding types.
+     *
+     * @access public
+     *
+     * @return array
+     */
     function getFieldsTypes()
     {
         return array(
@@ -114,7 +162,11 @@ class tx_OpenxDllZoneInfo extends tx_OpenxInfo
                     'zoneName' => 'string',
                     'type' => 'integer',
                     'width' => 'integer',
-                    'height' => 'integer'
+                    'height' => 'integer',
+                    'capping' => 'integer',
+                    'sessionCapping' => 'integer',
+                    'block' => 'integer',
+                    'comments' => 'string',
                 );
     }
 }

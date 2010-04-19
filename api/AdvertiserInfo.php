@@ -2,10 +2,10 @@
 
 /*
 +---------------------------------------------------------------------------+
-| OpenX v2.6                                                                |
+| OpenX v2.8                                                                |
 | ==========                                                                |
 |                                                                           |
-| Copyright (c) 2003-2008 OpenX Limited                                     |
+| Copyright (c) 2003-2009 OpenX Limited                                     |
 | For contact details, see: http://www.openx.org/                           |
 |                                                                           |
 | This program is free software; you can redistribute it and/or modify      |
@@ -86,6 +86,13 @@ class tx_OpenxDllAdvertiserInfo extends tx_OpenxInfo
      */
     var $emailAddress;
 
+    /**
+     * This field provides any additional comments to be stored.
+     *
+     * @var string $comments
+     */
+    var $comments;
+
     function getFieldsTypes()
     {
         return array(
@@ -94,7 +101,8 @@ class tx_OpenxDllAdvertiserInfo extends tx_OpenxInfo
                     'agencyId' => 'integer',
                     'advertiserName' => 'string',
                     'contactName' => 'string',
-                    'emailAddress' => 'string'
+                    'emailAddress' => 'string',
+                    'comments' => 'string',
                 );
     }
 }
