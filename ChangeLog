@@ -1,12 +1,6 @@
-<<<<<<< .mine
 v2.0.0
 2010-04-15 Roberto Presedo <rpresedo@cobweb.ch>
         * Compatibility with Openx 4.8 updating the Openx API php classes
-=======
-v1.0.1
-2010-01-28 Roberto Presedo <rpresedo@cobweb.ch>
-        * Possibility to use a different domain name for the administration interface.
->>>>>>> .r32314
 
 v1.0.1
 2010-01-28 Roberto Presedo <rpresedo@cobweb.ch>
