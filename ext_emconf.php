@@ -14,11 +14,11 @@ $EM_CONF[$_EXTKEY] = array(
 	'title' => 'OpenX banners',
 	'description' => "Openx Banners
 	
-	Get banners from an Openx server
+	Get banners from an Openx server 4.8
 	
 	With this extension, you'll be able to use differents invocations tags to display the banners (local mode, javascript or iframe)
 	
-	!! PEAR must be installed with the XML_RPC package !!
+	!! PEAR must be installed with the XML_RPC and DATE package !!
 	you can use the PEAR Manager Extension (ext:pear) to install PEAR and the packages in Typo3
 	
 	",
@@ -38,7 +38,11 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
+<<<<<<< .mine
+	'version' => '2.0.0',
+=======
 	'version' => '1.0.1',
+>>>>>>> .r32314
 	'constraints' => array(
 		'depends' => array( 
 		),
